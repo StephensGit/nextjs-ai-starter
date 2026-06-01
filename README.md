@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextjs-ai-starter
 
-## Getting Started
+A personal Next.js starter template with an AI-first workflow built in. Clone it, fill in two placeholder lines, and start building.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router) + TypeScript
+- **Tailwind CSS v4** + shadcn/ui (Base UI)
+- **React Hook Form** + Zod
+- **TanStack Query** (optional, for client-heavy screens)
+- **Bun** (runtime + package manager) + **Biome** (lint + format)
+- **Bun test** + happy-dom + React Testing Library
+
+## AI workflow
+
+- **Claude Code** with OpenSpec for spec-driven change management
+- **Skills** pre-configured: `vercel-react-best-practices`, `next-best-practices`, `web-design-guidelines`, `vercel-composition-patterns`, `shadcn`
+- **CLAUDE.md** + `docs/` knowledge layer — short working instructions, living conventions, ADRs
+
+## Using this template
+
+### 1. Create a new project from this template
+
+Click **Use this template** on GitHub, clone your new repo, then:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
+```
+
+### 2. Fill in the two placeholders
+
+- `CLAUDE.md` — replace `[One line: what this app does.]` with one sentence about your project
+- `docs/ARCHITECTURE.md` — replace the bracketed sections with your stack and shape
+
+### 3. Restore skills
+
+```bash
+npx skills install
+```
+
+### 4. Re-initialise OpenSpec for this project
+
+```bash
+openspec init --tools claude
+```
+
+### 5. Start building
+
+```bash
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/              routes, layouts, server components (thin)
+features/<name>/  feature logic — api, components, hooks, utils
+components/ui/    shadcn primitives (your files, edit freely)
+lib/              cross-cutting helpers (providers, utils, env)
+docs/             conventions, decisions, templates
+openspec/         spec-driven change artifacts
+.claude/          skills + OpenSpec slash commands
+```
 
-## Learn More
+## Commands
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+bun dev          # dev server
+bun run build    # production build
+bun check        # Biome lint + format, auto-fix
+bun test         # unit tests
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `docs/conventions/web.md` — how frontend code is written here
+- `docs/conventions/testing.md` — testing patterns and gotchas
+- `docs/conventions/openspec.md` — the OpenSpec workflow
+- `docs/decisions/` — architectural decision records
+- `docs/BOOTSTRAP.md` — how this template was built
