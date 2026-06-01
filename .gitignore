@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+.agents/
+.claude/skills/vercel-react-best-practices/
+.claude/skills/web-design-guidelines/
+.claude/skills/vercel-composition-patterns/
+.claude/skills/next-best-practices/
+.claude/skills/shadcn/
